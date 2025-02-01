@@ -1,0 +1,43 @@
+{
+  "commands": [
+    {
+      "type": "CommandGroup/ParallelCommandGroup",
+      "commands": [
+        {
+          "type": "Command/LinkageCommand",
+          "target": 0
+        },
+        {
+          "type": "Command/IntakeArmCommand",
+          "position": 1
+        },
+        {
+          "type": "Command/DiffyCommand",
+          "state": 0
+        }
+      ],
+      "subsystems": [
+        {
+          "type": "Subsystem",
+          "name": "Linkage"
+        },
+        {
+          "type": "Subsystem",
+          "name": "IntakeArm"
+        },
+        {
+          "type": "Subsystem",
+          "name": "Diffy"
+        }
+      ]
+    },
+    {
+      "type": "Command/WaitCommand",
+      "duration": 750
+    },
+    {
+      "type": "Command/IntakeArmCommand",
+      "position": 0
+    }
+  ]
+}

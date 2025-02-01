@@ -18,38 +18,50 @@ export abstract class Command extends Base {
 
 export abstract class CommandGroup extends Command {
   type = "CommandGroup";
-  abstract children: Command[];
+  abstract commands: Command[];
   abstract subsystems: Subsystem[];
 }
 
 export class SequentialCommandGroup extends CommandGroup {
-  constructor(public children: Command[], public subsystems: Subsystem[]) {
+  constructor(
+    public commands: Command[] = [],
+    public subsystems: Subsystem[] = []
+  ) {
     super();
-    this.type += "SequentialCommandGroup";
+    this.type += "/SequentialCommandGroup";
   }
 }
 
 export class ParallelCommandGroup extends CommandGroup {
-  constructor(public children: Command[], public subsystems: Subsystem[]) {
+  constructor(
+    public commands: Command[] = [],
+    public subsystems: Subsystem[] = []
+  ) {
     super();
-    this.type += "ParallelCommandGroup";
+    this.type += "/ParallelCommandGroup";
   }
 }
 
 export class ParallelRaceGroup extends CommandGroup {
-  constructor(public children: Command[], public subsystems: Subsystem[]) {
+  constructor(
+    public commands: Command[] = [],
+    public subsystems: Subsystem[] = []
+  ) {
     super();
-    this.type += "ParallelRaceGroup";
+    this.type += "/ParallelRaceGroup";
   }
 }
 
 export class ParallelDeadlineGroup extends CommandGroup {
-  constructor(public children: Command[], public subsystems: Subsystem[]) {
+  constructor(
+    public commands: Command[] = [],
+    public subsystems: Subsystem[] = []
+  ) {
     super();
-    this.type += "ParallelDeadlineGroup";
+    this.type += "/ParallelDeadlineGroup";
   }
 }
 
 export interface Schema {
-  children: Command[];
+  commands: Command[];
 }

@@ -1,6 +1,6 @@
 import { Command, Subsystem } from "../../baseTypes";
 
-enum IntakeWristPosition {
+export enum IntakeWristPosition {
   BASE,
   EXTENDED,
   FLOOR,

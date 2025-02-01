@@ -1,6 +1,6 @@
 import { Command, Subsystem } from "../../baseTypes";
 
-enum DiffyPosition {
+export enum DiffyPosition {
   BASE,
   EXTENDED,
   FLOOR,
