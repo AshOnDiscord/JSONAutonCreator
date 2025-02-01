@@ -3,20 +3,14 @@ import { Command, Subsystem } from "../../baseTypes";
 export const Slides = new Subsystem("Slides");
 
 export class SlidesCommand extends Command {
-  type = "SlidesCommand";
-  target: number;
-
-  constructor(target: number) {
+  constructor(public target: number) {
     super();
-    this.target = target;
+    this.type += "SlidesCommand";
   }
 }
 export class ManualSlidesCommand extends Command {
-  type = "ManualSlidesCommand";
-  power: number;
-
-  constructor(power: number) {
+  constructor(public power: number) {
     super();
-    this.power = power;
+    this.type += "ManualSlidesCommand";
   }
 }

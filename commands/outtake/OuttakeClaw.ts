@@ -3,11 +3,8 @@ import { Command, Subsystem } from "../../baseTypes";
 export const OuttakeClaw = new Subsystem("OuttakeClaw");
 
 export class OuttakeClawCommand extends Command {
-  type = "OuttakeClawCommand";
-  isOpen: boolean;
-
-  constructor(isOpen: boolean) {
+  constructor(public isOpen: boolean) {
     super();
-    this.isOpen = isOpen;
+    this.type += "OuttakeClawCommand";
   }
 }

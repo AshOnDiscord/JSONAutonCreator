@@ -11,11 +11,8 @@ enum OuttakeWristPosition {
 export const OuttakeWrist = new Subsystem("OuttakeWrist");
 
 export class OuttakeWristCommand extends Command {
-  type = "OuttakeArmCommand";
-  position: OuttakeWristPosition;
-
-  constructor(position: OuttakeWristPosition) {
+  constructor(public position: OuttakeWristPosition) {
     super();
-    this.position = position;
+    this.type += "OuttakeWristCommand";
   }
 }

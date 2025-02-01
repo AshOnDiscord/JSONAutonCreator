@@ -11,11 +11,8 @@ enum IntakeWristPosition {
 export const IntakeWrist = new Subsystem("IntakeWrist");
 
 export class IntakeWristCommand extends Command {
-  type = "IntakeArmCommand";
-  position: IntakeWristPosition;
-
-  constructor(position: IntakeWristPosition) {
+  constructor(public position: IntakeWristPosition) {
     super();
-    this.position = position;
+    this.type += "/IntakeWristCommand";
   }
 }

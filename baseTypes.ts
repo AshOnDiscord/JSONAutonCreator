@@ -13,29 +13,40 @@ export class Subsystem extends Base {
 }
 
 export abstract class Command extends Base {
-  abstract type: string;
+  type: string = "Command";
 }
 
-export type CommandGroups =
-  | "SequentialCommandGroup"
-  | "ParallelCommandGroup"
-  | "ParallelRaceGroup"
-  | "ParallelDeadlineGroup";
+export abstract class CommandGroup extends Command {
+  type = "CommandGroup";
+  abstract children: Command[];
+  abstract subsystems: Subsystem[];
+}
 
-export class CommandGroup extends Command {
-  type: CommandGroups;
-  children: Command[];
-  subsystems: Subsystem[];
-
-  constructor(
-    type: CommandGroups,
-    children: Command[] = [],
-    subsystems: Subsystem[] = []
-  ) {
+export class SequentialCommandGroup extends CommandGroup {
+  constructor(public children: Command[], public subsystems: Subsystem[]) {
     super();
-    this.type = type;
-    this.children = children;
-    this.subsystems = subsystems;
+    this.type += "SequentialCommandGroup";
+  }
+}
+
+export class ParallelCommandGroup extends CommandGroup {
+  constructor(public children: Command[], public subsystems: Subsystem[]) {
+    super();
+    this.type += "ParallelCommandGroup";
+  }
+}
+
+export class ParallelRaceGroup extends CommandGroup {
+  constructor(public children: Command[], public subsystems: Subsystem[]) {
+    super();
+    this.type += "ParallelRaceGroup";
+  }
+}
+
+export class ParallelDeadlineGroup extends CommandGroup {
+  constructor(public children: Command[], public subsystems: Subsystem[]) {
+    super();
+    this.type += "ParallelDeadlineGroup";
   }
 }
 

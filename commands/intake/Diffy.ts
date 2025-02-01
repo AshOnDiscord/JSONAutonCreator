@@ -11,23 +11,15 @@ enum DiffyPosition {
 export const Diffy = new Subsystem("Diffy");
 
 export class DiffyCommand extends Command {
-  type = "DiffyCommand";
-  state: DiffyPosition;
-
-  constructor(state: DiffyPosition) {
+  constructor(public state: DiffyPosition) {
     super();
-    this.state = state;
+    this.type += "/DiffyCommand";
   }
 }
 
 export class ManualDiffyCommand extends Command {
-  type = "ManualDiffyCommand";
-  pitch: number;
-  roll: number;
-
-  constructor(pitch: number, roll: number) {
+  constructor(public pitch: number, public roll: number) {
     super();
-    this.pitch = pitch;
-    this.roll = roll;
+    this.type += "/ManualDiffyCommand";
   }
 }
