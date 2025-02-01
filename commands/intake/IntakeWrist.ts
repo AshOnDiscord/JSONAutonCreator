@@ -8,7 +8,13 @@ export enum IntakeWristPosition {
   SWEEP,
 }
 
-export const IntakeWrist = new Subsystem("IntakeWrist");
+export class IntakeWristSubsystem extends Subsystem {
+  constructor() {
+    super();
+    this.type += "/Intake/Wrist";
+  }
+}
+export const IntakeWrist = new IntakeWristSubsystem();
 
 export class IntakeWristCommand extends Command {
   constructor(public position: IntakeWristPosition) {

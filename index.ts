@@ -5,7 +5,7 @@ import {
   IntakeArmCommand,
   IntakeArmPosition,
 } from "./commands/intake/IntakeArm";
-import { Linkage, LinkageCommand } from "./commands/intake/Slides";
+import { Linkage, LinkageCommand } from "./commands/intake/Linkage";
 import { WaitCommand } from "./commands/misc/WaitCommand";
 
 const BarSide: Schema = {

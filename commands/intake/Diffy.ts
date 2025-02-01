@@ -8,7 +8,13 @@ export enum DiffyPosition {
   SWEEP,
 }
 
-export const Diffy = new Subsystem("Diffy");
+export class DiffySubsystem extends Subsystem {
+  constructor() {
+    super();
+    this.type += "/Intake/Diffy";
+  }
+}
+export const Diffy = new DiffySubsystem();
 
 export class DiffyCommand extends Command {
   constructor(public state: DiffyPosition) {

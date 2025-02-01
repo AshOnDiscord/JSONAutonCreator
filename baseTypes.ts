@@ -2,14 +2,8 @@ export abstract class Base {
   abstract type: string;
 }
 
-export class Subsystem extends Base {
+export abstract class Subsystem extends Base {
   type = "Subsystem";
-  name: string;
-
-  constructor(name: string) {
-    super();
-    this.name = name;
-  }
 }
 
 export abstract class Command extends Base {

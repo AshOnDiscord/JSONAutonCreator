@@ -1,6 +1,12 @@
 import { Command, Subsystem } from "../../baseTypes";
 
-export const Slides = new Subsystem("Slides");
+export class SlidesSubsystem extends Subsystem {
+  constructor() {
+    super();
+    this.type += "/Outtake/Slides";
+  }
+}
+export const Slides = new SlidesSubsystem();
 
 export class SlidesCommand extends Command {
   constructor(public target: number) {

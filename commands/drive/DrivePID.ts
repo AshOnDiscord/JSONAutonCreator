@@ -1,7 +1,13 @@
 import { Command, Subsystem } from "../../baseTypes";
 import type Pose2d from "../../util/Pose2d";
 
-export const PIDManager = new Subsystem("PIDManager");
+export class PIDManagerSubsystem extends Subsystem {
+  constructor() {
+    super();
+    this.type += "/PIDManager";
+  }
+}
+export const PIDManager = new PIDManagerSubsystem();
 
 export class DrivePIDCommand extends Command {
   constructor(
